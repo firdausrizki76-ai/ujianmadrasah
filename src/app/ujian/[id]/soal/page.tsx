@@ -190,26 +190,70 @@ export default function SoalUjian() {
     initExamSession();
   }, [examId, router]);
 
-  // Fullscreen Mode and Anti-Cheat Event Listeners
+  // Check fullscreen support and add prefixed support
+  const [fullscreenSupported, setFullscreenSupported] = useState(true);
+
+  useEffect(() => {
+    const docEl = document.documentElement;
+    const supported = !!(
+      docEl.requestFullscreen ||
+      (docEl as any).webkitRequestFullscreen ||
+      (docEl as any).mozRequestFullScreen ||
+      (docEl as any).msRequestFullscreen
+    );
+    setFullscreenSupported(supported);
+  }, []);
+
   const enterFullscreen = () => {
     const docEl = document.documentElement;
-    if (docEl.requestFullscreen) {
-      docEl.requestFullscreen().then(() => {
+    try {
+      if (docEl.requestFullscreen) {
+        docEl.requestFullscreen()
+          .then(() => setIsFullscreen(true))
+          .catch((err) => {
+            console.error("Fullscreen Request Failed:", err);
+            setIsFullscreen(true); // fallback
+          });
+      } else if ((docEl as any).webkitRequestFullscreen) {
+        (docEl as any).webkitRequestFullscreen();
         setIsFullscreen(true);
-      }).catch((err) => {
-        console.error("Fullscreen Request Failed:", err);
-      });
+      } else if ((docEl as any).mozRequestFullScreen) {
+        (docEl as any).mozRequestFullScreen();
+        setIsFullscreen(true);
+      } else if ((docEl as any).msRequestFullscreen) {
+        (docEl as any).msRequestFullscreen();
+        setIsFullscreen(true);
+      } else {
+        // Fallback for devices without native Fullscreen API (like iPhone iOS Safari)
+        setIsFullscreen(true);
+      }
+    } catch (err) {
+      console.error("Fullscreen error catch:", err);
+      setIsFullscreen(true);
     }
   };
 
   useEffect(() => {
     const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
+      const isFull = !!(
+        document.fullscreenElement ||
+        (document as any).webkitFullscreenElement ||
+        (document as any).mozFullScreenElement ||
+        (document as any).msFullscreenElement
+      );
+      setIsFullscreen(isFull);
     };
 
     document.addEventListener("fullscreenchange", handleFullscreenChange);
+    document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
+    document.addEventListener("mozfullscreenchange", handleFullscreenChange);
+    document.addEventListener("MSFullscreenChange", handleFullscreenChange);
+
     return () => {
       document.removeEventListener("fullscreenchange", handleFullscreenChange);
+      document.removeEventListener("webkitfullscreenchange", handleFullscreenChange);
+      document.removeEventListener("mozfullscreenchange", handleFullscreenChange);
+      document.removeEventListener("MSFullscreenChange", handleFullscreenChange);
     };
   }, []);
 
@@ -683,12 +727,16 @@ export default function SoalUjian() {
               onClick={enterFullscreen}
               className="w-full bg-error hover:bg-error/95 text-white py-3.5 px-6 font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-error/20 cursor-pointer"
             >
-              <span className="material-symbols-outlined text-sm">fullscreen</span>
-              Masuk Mode Layar Penuh
+              <span className="material-symbols-outlined text-sm">
+                {fullscreenSupported ? "fullscreen" : "stay_current_portrait"}
+              </span>
+              {fullscreenSupported ? "Masuk Mode Layar Penuh" : "Mulai Ujian (Mode Mobile)"}
             </button>
 
             <p className="text-[10px] text-outline">
-              * Percobaan keluar layar penuh / berpindah tab sebanyak 3 kali akan menyebabkan lembar ujian Anda dikumpulkan otomatis dengan status pelanggaran.
+              {fullscreenSupported
+                ? "* Percobaan keluar layar penuh / berpindah tab sebanyak 3 kali akan menyebabkan lembar ujian Anda dikumpulkan otomatis dengan status pelanggaran."
+                : "* Browser/HP Anda tidak mendukung fullscreen otomatis (seperti Safari di iOS). Ujian berjalan dalam mode mobile biasa. Harap TIDAK meninggalkan halaman ini (berganti aplikasi/buka notifikasi) agar tidak terdeteksi curang."}
             </p>
           </div>
         </div>
