@@ -82,6 +82,7 @@ export default function SoalUjian() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [cheatAttempts, setCheatAttempts] = useState(0);
   const [showCheatWarning, setShowCheatWarning] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   // Submit Exam Handler (autoSubmit) declared early to avoid hoisting issues
   const autoSubmitExam = useCallback(async () => {
@@ -434,41 +435,49 @@ export default function SoalUjian() {
   return (
     <div className="bg-background text-on-background font-body-md overflow-hidden h-screen fixed inset-0 z-[100] flex flex-col">
       {/* TopAppBar */}
-      <header className="bg-surface-container-lowest border-b-2 border-primary-fixed flex justify-between items-center w-full px-gutter h-20 shrink-0 z-50">
-        <div className="flex items-center gap-4">
-          <h1 className="text-headline-md font-bold text-on-surface">
-            {exam?.title} ({exam?.subject})
+      <header className="bg-surface-container-lowest border-b-2 border-primary-fixed flex justify-between items-center w-full px-4 md:px-8 h-20 shrink-0 z-50">
+        <div className="flex items-center gap-2 max-w-[40%] sm:max-w-none">
+          <h1 className="text-sm sm:text-headline-md font-bold text-on-surface truncate">
+            {exam?.title} <span className="hidden sm:inline">({exam?.subject})</span>
           </h1>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-2 sm:gap-6">
           {exam?.instructions && (
             <button
               onClick={() => setShowInstructionsModal(true)}
-              className="border border-outline-variant hover:border-primary-fixed text-on-surface-variant hover:text-on-surface font-bold px-4 py-2 hover:bg-surface-container-high transition-all active:scale-95 cursor-pointer text-xs uppercase tracking-wider flex items-center gap-1.5"
+              className="border border-outline-variant hover:border-primary-fixed text-on-surface-variant hover:text-on-surface font-bold px-2 sm:px-4 py-1.5 sm:py-2 hover:bg-surface-container-high transition-all active:scale-95 cursor-pointer text-[10px] sm:text-xs uppercase tracking-wider flex items-center gap-1"
             >
-              <span className="material-symbols-outlined text-sm">info</span>
-              Petunjuk Ujian
+              <span className="material-symbols-outlined text-xs sm:text-sm">info</span>
+              <span className="hidden sm:inline">Petunjuk Ujian</span>
             </button>
           )}
           <div className="flex flex-col items-end">
-            <span className="text-label-sm text-outline">Sisa Waktu</span>
-            <span className="text-label-timer text-error font-black text-xl animate-pulse">
+            <span className="text-[9px] sm:text-label-sm text-outline uppercase">Waktu</span>
+            <span className="text-label-timer text-error font-black text-sm sm:text-xl animate-pulse">
               {timeLeft !== null ? formatTime(timeLeft) : "--:--"}
             </span>
           </div>
           <button
             onClick={() => setShowSubmitModal(true)}
-            className="bg-primary-fixed text-on-primary-fixed font-black px-6 py-2.5 hover:bg-primary-fixed-dim transition-all active:scale-95 cursor-pointer text-sm uppercase tracking-wider"
+            className="bg-primary-fixed text-on-primary-fixed font-black px-3 sm:px-6 py-2 sm:py-2.5 hover:bg-primary-fixed-dim transition-all active:scale-95 cursor-pointer text-xs sm:text-sm uppercase tracking-wider"
           >
-            Kumpulkan Ujian
+            <span className="hidden sm:inline">Kumpulkan Ujian</span>
+            <span className="sm:hidden inline">Selesai</span>
+          </button>
+          <button
+            onClick={() => setShowSidebar(true)}
+            className="md:hidden flex items-center justify-center bg-surface-container-high border border-outline-variant text-on-surface hover:text-primary-fixed px-3 py-2 transition-all active:scale-95 cursor-pointer"
+          >
+            <span className="material-symbols-outlined text-sm">menu</span>
+            <span className="hidden xs:inline ml-1 text-xs uppercase tracking-wider font-bold">Soal</span>
           </button>
         </div>
       </header>
 
       {/* Main Container */}
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 overflow-hidden relative">
         {/* Main Content Area */}
-        <main className="flex-1 overflow-y-auto px-gutter py-12 custom-scrollbar">
+        <main className="flex-1 overflow-y-auto px-4 sm:px-gutter py-6 sm:py-12 custom-scrollbar">
           <div className="max-w-[700px] mx-auto space-y-8">
             
             {/* Error alerts if submission fails */}
@@ -568,11 +577,11 @@ export default function SoalUjian() {
             )}
 
             {/* Navigation Buttons */}
-            <div className="flex justify-between items-center pt-12 pb-24">
+            <div className="flex justify-between items-center pt-8 pb-16">
               <button
                 onClick={() => setCurrentIdx((prev) => Math.max(0, prev - 1))}
                 disabled={currentIdx === 0}
-                className="flex items-center gap-2 border-2 border-outline px-6 py-2.5 text-on-surface font-black text-xs uppercase tracking-wider hover:border-primary-fixed hover:text-primary-fixed transition-all disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+                className="flex items-center gap-1.5 border-2 border-outline px-4 sm:px-6 py-2 sm:py-2.5 text-on-surface font-black text-xs uppercase tracking-wider hover:border-primary-fixed hover:text-primary-fixed transition-all disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
               >
                 <span className="material-symbols-outlined text-sm">chevron_left</span>
                 SEBELUMNYA
@@ -580,7 +589,7 @@ export default function SoalUjian() {
               <button
                 onClick={() => setCurrentIdx((prev) => Math.min(questions.length - 1, prev + 1))}
                 disabled={currentIdx === questions.length - 1}
-                className="flex items-center gap-2 bg-primary-fixed text-on-primary-fixed px-8 py-2.5 font-black text-xs uppercase tracking-wider hover:opacity-90 transition-all disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+                className="flex items-center gap-1.5 bg-primary-fixed text-on-primary-fixed px-6 sm:px-8 py-2 sm:py-2.5 font-black text-xs uppercase tracking-wider hover:opacity-90 transition-all disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
               >
                 SELANJUTNYA
                 <span className="material-symbols-outlined text-sm">chevron_right</span>
@@ -589,11 +598,30 @@ export default function SoalUjian() {
           </div>
         </main>
 
+        {/* Sidebar backdrop for mobile */}
+        {showSidebar && (
+          <div
+            className="fixed inset-0 bg-black/60 z-[100] md:hidden backdrop-blur-xs transition-opacity duration-300"
+            onClick={() => setShowSidebar(false)}
+          />
+        )}
+
         {/* SideNavBar - Question Navigator */}
-        <aside className="h-full w-72 bg-surface-container-low border-l border-outline-variant p-6 flex flex-col gap-6 shadow-xl shrink-0">
-          <div className="space-y-1">
-            <h2 className="text-label-sm text-primary-fixed font-black uppercase tracking-widest">Navigasi Soal</h2>
-            <p className="text-body-md text-on-surface-variant font-bold">{questions.length} Butir Soal</p>
+        <aside className={`
+          fixed md:relative top-0 right-0 z-[150] md:z-0 h-full w-72 bg-surface-container-low border-l border-outline-variant p-6 flex flex-col gap-6 shadow-xl shrink-0 transition-transform duration-300
+          ${showSidebar ? "translate-x-0" : "translate-x-full md:translate-x-0"}
+        `}>
+          <div className="flex justify-between items-center md:block">
+            <div className="space-y-1">
+              <h2 className="text-label-sm text-primary-fixed font-black uppercase tracking-widest">Navigasi Soal</h2>
+              <p className="text-body-md text-on-surface-variant font-bold">{questions.length} Butir Soal</p>
+            </div>
+            <button
+              onClick={() => setShowSidebar(false)}
+              className="md:hidden flex items-center justify-center p-2 text-on-surface-variant hover:text-on-surface cursor-pointer rounded-full hover:bg-surface-container-high"
+            >
+              <span className="material-symbols-outlined text-xl">close</span>
+            </button>
           </div>
 
           <div className="grid grid-cols-5 gap-2 overflow-y-auto pr-2 flex-1 content-start custom-scrollbar">
@@ -605,7 +633,10 @@ export default function SoalUjian() {
               return (
                 <button
                   key={q.id}
-                  onClick={() => setCurrentIdx(idx)}
+                  onClick={() => {
+                    setCurrentIdx(idx);
+                    setShowSidebar(false); // auto-close drawer on mobile
+                  }}
                   className={`w-10 h-10 flex items-center justify-center rounded-sm text-xs font-black relative transition-all border cursor-pointer ${
                     isCurrent
                       ? "border-2 border-primary-fixed bg-primary-fixed/15 text-primary-fixed shadow"
