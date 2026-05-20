@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#424b00",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "surface-tint": "#bad200",
+                      "on-primary-fixed": "#191e00",
+                      "on-primary-container": "#5e6b00",
+                      "surface-variant": "#353534",
+                      "primary-container": "#d4f000",
+                      "on-secondary": "#303030",
+                      "surface-container-highest": "#353534",
+                      "background": "#131313",
+                      "tertiary": "#ffffff",
+                      "outline": "#909378",
+                      "primary-fixed-dim": "#bad200",
+                      "on-error": "#690005",
+                      "on-tertiary": "#17343b",
+                      "surface-bright": "#393939",
+                      "inverse-surface": "#e5e2e1",
+                      "on-secondary-container": "#b7b5b4",
+                      "surface-container-low": "#1c1b1b",
+                      "primary-fixed": "#d4f000",
+                      "outline-variant": "#464932",
+                      "surface-container": "#201f1f",
+                      "on-surface": "#e5e2e1",
+                      "tertiary-fixed-dim": "#adccd4",
+                      "surface-container-lowest": "#0e0e0e",
+                      "secondary": "#c8c6c5",
+                      "tertiary-container": "#c9e8f1",
+                      "error-container": "#93000a",
+                      "surface-container-high": "#2a2a2a",
+                      "surface": "#131313",
+                      "secondary-container": "#474746",
+                      "on-tertiary-fixed-variant": "#2e4b52",
+                      "error": "#ffb4ab",
+                      "on-tertiary-fixed": "#001f26",
+                      "on-surface-variant": "#c6c9ab",
+                      "on-tertiary-container": "#4c6971",
+                      "on-secondary-fixed-variant": "#474746",
+                      "on-primary": "#2d3400",
+                      "primary": "#ffffff",
+                      "on-background": "#e5e2e1",
+                      "surface-dim": "#131313",
+                      "secondary-fixed": "#e4e2e1",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "inverse-on-surface": "#313030",
+                      "tertiary-fixed": "#c9e8f1",
+                      "inverse-primary": "#586400"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "padding-card": "32px",
+                      "container-max-width": "1200px",
+                      "unit": "4px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-timer": ["Geist"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "label-timer": ["20px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #131313;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-center p-margin-mobile">
+<!-- Brand Identity Anchor -->
+<header class="mb-12 text-center">
+<div class="flex items-center justify-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary-fixed text-headline-lg" data-icon="school">school</span>
+<h1 class="text-headline-lg font-headline-lg text-primary-fixed tracking-tight">MADRASAH EXAM</h1>
+</div>
+<p class="text-on-surface-variant text-body-md font-body-md">Portal Ujian Terintegrasi</p>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[440px]">
+<div class="bg-surface-container border border-outline-variant p-padding-card rounded-none">
+<div class="mb-8">
+<h2 class="text-headline-md font-headline-md text-on-surface mb-2">Masuk ke Akun</h2>
+<div class="h-1 w-12 bg-primary-fixed"></div>
+</div>
+<form class="space-y-6">
+<!-- Username/Email Field -->
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider" for="student-id">Nomor Induk Siswa / Email</label>
+<div class="relative">
+<input class="w-full bg-surface-container-high border border-outline-variant text-on-surface p-4 focus:ring-0 focus:border-primary-fixed outline-none transition-colors font-body-md" id="student-id" placeholder="Masukkan ID atau Email" type="text"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant" data-icon="person">person</span>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider" for="password">Kata Sandi</label>
+<a class="text-label-sm font-label-sm text-primary-fixed hover:underline transition-all" href="#">Lupa Kata Sandi?</a>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-high border border-outline-variant text-on-surface p-4 focus:ring-0 focus:border-primary-fixed outline-none transition-colors font-body-md" id="password" placeholder="Masukkan kata sandi" type="password"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant" data-icon="lock">lock</span>
+</div>
+</div>
+<!-- Remember Me (Low contrast styling) -->
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 bg-surface-container-high border-outline-variant rounded-none text-primary-fixed focus:ring-0" id="remember" type="checkbox"/>
+<label class="text-body-md font-body-md text-on-surface-variant select-none" for="remember">Ingat saya di perangkat ini</label>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary-fixed text-on-primary-fixed font-headline-md text-headline-md py-4 transition-all active:scale-[0.98] hover:bg-primary-fixed-dim" type="submit">
+                    Masuk
+                </button>
+</form>
+<!-- Academic Footer/Notice -->
+<div class="mt-8 pt-8 border-t border-outline-variant flex gap-4 items-start">
+<span class="material-symbols-outlined text-on-surface-variant mt-1" data-icon="info">info</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant leading-relaxed">
+                    Pastikan Anda menggunakan koneksi internet yang stabil selama sesi ujian berlangsung. Hubungi administrator jika Anda mengalami kendala saat masuk.
+                </p>
+</div>
+</div>
+<!-- Decorative Academic Background Element (Subtle) -->
+<div class="mt-12 flex justify-center gap-8 opacity-20 grayscale">
+<div class="w-16 h-16 bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface text-headline-lg" data-icon="history_edu">history_edu</span>
+</div>
+<div class="w-16 h-16 bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface text-headline-lg" data-icon="auto_stories">auto_stories</span>
+</div>
+<div class="w-16 h-16 bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface text-headline-lg" data-icon="verified">verified</span>
+</div>
+</div>
+</main>
+<!-- Background Decoration Image -->
+<div class="fixed inset-0 -z-10 opacity-10 pointer-events-none">
+<img alt="Academic environment background" class="w-full h-full object-cover" data-alt="A dark and moody architectural shot of a modern university library with sharp geometric lines and deep shadows. The scene is illuminated by narrow strips of neon yellow artificial light reflecting off polished charcoal surfaces. The atmosphere is quiet, focused, and intellectually intense, following a high-contrast dark mode aesthetic with bold yellow accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1BP_yjduPisBFNAz6E2oXE0WDY698dmoZTCFPdDrZjMvqbPYd0P8enkIQqTphq4i2yv7LnOXVTuumWK_W3O-V-vVBH1gSL6OcCFIWhdJ9ENSVjx2fO5vXcDg2iTertmN6CMIfLBzUJHmPth-xOy56EYlcsBZ5WT2IxoHBQwjtwPRN6pzHhMO0oU-yhd-lPw5xBXHfkH4EtINoF1A-Ezu8HtbQ-YXDijipXB6JBU446Ofz988cHm7VZpJCBLs3p-887qCvkXNBBZhi"/>
+</div>
+</body></html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#191e00",
+                    "inverse-primary": "#586400",
+                    "on-secondary": "#303030",
+                    "background": "#131313",
+                    "outline-variant": "#464932",
+                    "primary-fixed-dim": "#bad200",
+                    "on-secondary-container": "#b7b5b4",
+                    "tertiary-fixed": "#c9e8f1",
+                    "primary-fixed": "#d4f000",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-container-highest": "#353534",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#2e4b52",
+                    "surface-tint": "#bad200",
+                    "surface-container": "#201f1f",
+                    "on-background": "#e5e2e1",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "surface-variant": "#353534",
+                    "inverse-on-surface": "#313030",
+                    "tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#474746",
+                    "on-error-container": "#ffdad6",
+                    "on-error": "#690005",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-tertiary-container": "#4c6971",
+                    "surface-bright": "#393939",
+                    "surface-dim": "#131313",
+                    "secondary-fixed": "#e4e2e1",
+                    "primary-container": "#d4f000",
+                    "secondary-container": "#474746",
+                    "secondary": "#c8c6c5",
+                    "on-primary": "#2d3400",
+                    "surface-container-high": "#2a2a2a",
+                    "on-surface-variant": "#c6c9ab",
+                    "on-tertiary": "#17343b",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed": "#001f26",
+                    "tertiary-fixed-dim": "#adccd4",
+                    "on-primary-container": "#5e6b00",
+                    "primary": "#ffffff",
+                    "surface": "#131313",
+                    "on-primary-fixed-variant": "#424b00",
+                    "outline": "#909378",
+                    "surface-container-low": "#1c1b1b",
+                    "tertiary-container": "#c9e8f1",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max-width": "1200px",
+                    "margin-mobile": "16px",
+                    "unit": "4px",
+                    "padding-card": "32px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-timer": ["Geist"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-timer": ["20px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface border-b border-outline-variant docked full-width top-0 z-40">
+<div class="flex justify-between items-center w-full px-gutter h-16 max-w-container-max-width mx-auto">
+<h1 class="text-headline-md font-headline-md font-bold text-primary-fixed tracking-tight">MADRASAH EXAM</h1>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors p-2">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<div class="text-right hidden sm:block">
+<p class="text-label-sm font-label-sm text-on-surface">Ahmad Fauzi</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Siswa Kelas XII</p>
+</div>
+<img alt="Student Profile Picture" class="w-10 h-10 rounded-full border border-outline" data-alt="A professional studio headshot of a young male student in a neat madrasah uniform, set against a dark, minimalist background. The lighting is sophisticated, with subtle rim lighting that emphasizes his features. The overall color palette consists of deep charcoals and blacks with slight warm tones, reflecting a modern, high-stakes academic environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdTq4FXiJzjD_AxOV2sfoECWWC8dWX036iI_wygCajr-LRsdoEjSMcO2hZxo4XhYE2NgzCIuZedaCj1afoXvPcRlQfUi-2tKJCW4xQ4fEePiUeWzxPmA0esljXhPofR2bi2KxpFmc3dt6KWQaBaIvtvApEuWJwbtsmtOeiKeNQ99lGPZf_EGforLHK6OpQwaK7a3xEsuA7NsmGUpjZftTbypO42y3--Xzw7-9rdA7RhlXD2SLjTItPZ0sYQFVmI9CBLRz1ia0C14ww"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex max-w-container-max-width mx-auto">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 bg-surface-container dark:bg-surface-container border-r border-outline-variant w-64 hidden md:flex z-50">
+<div class="mb-8 pt-4">
+<h2 class="text-headline-md font-headline-md text-primary-fixed">Panel Siswa</h2>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Akademik 2023/2024</p>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="flex items-center gap-3 p-3 bg-primary-container text-on-primary-container font-bold border-r-4 border-primary-fixed transition-transform duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-body-md font-body-md">Beranda</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant transition-all hover:text-primary-fixed" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-body-md font-body-md">Jadwal Ujian</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant transition-all hover:text-primary-fixed" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-body-md font-body-md">Riwayat Nilai</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant transition-all hover:text-primary-fixed" href="#">
+<span class="material-symbols-outlined">grade</span>
+<span class="text-body-md font-body-md">Statistik</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant transition-all hover:text-primary-fixed" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-body-md font-body-md">Pengaturan</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-4">
+<div class="p-3 bg-surface-container-highest rounded-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed">help</span>
+<span class="text-label-sm font-label-sm text-on-surface">Pusat Bantuan</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-grow md:ml-64 p-gutter pt-8">
+<!-- Hero / Welcome -->
+<div class="mb-8">
+<h2 class="text-headline-lg font-headline-lg text-on-surface mb-2">Assalamu'alaikum, Ahmad</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">Semangat untuk ujian hari ini. Pastikan koneksi internet stabil dan perangkat Anda terisi daya penuh.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Active Exam Card (Highlight) -->
+<div class="lg:col-span-2 bg-surface-container-low border border-outline-variant p-padding-card relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-fixed/5 -mr-16 -mt-16 rounded-full"></div>
+<div class="flex items-center gap-2 text-primary-fixed mb-4">
+<span class="material-symbols-outlined">radio_button_checked</span>
+<span class="text-label-sm font-label-sm uppercase tracking-widest font-bold">Ujian Aktif</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-2">Fiqh An-Nikah: Ujian Tengah Semester</h3>
+<div class="flex flex-wrap gap-4 text-on-surface-variant mb-8">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-body-md">schedule</span>
+<span class="text-body-md font-body-md">90 Menit</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-body-md">format_list_numbered</span>
+<span class="text-body-md font-body-md">40 Pertanyaan</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary-fixed text-on-primary-fixed px-8 py-3 font-bold text-body-md transition-all active:scale-95 hover:opacity-90">
+                            MULAI UJIAN SEKARANG
+                        </button>
+<button class="border-2 border-primary-fixed text-primary-fixed px-8 py-3 font-bold text-body-md transition-all hover:bg-primary-fixed/10">
+                            INSTRUKSI UJIAN
+                        </button>
+</div>
+</div>
+<!-- Profile & Quick Stats -->
+<div class="bg-surface-container-low border border-outline-variant p-padding-card">
+<h3 class="text-label-sm font-label-sm text-on-surface-variant mb-6 uppercase tracking-widest font-bold">Statistik Belajar</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between border-b border-outline-variant pb-4">
+<div>
+<p class="text-headline-md font-headline-md text-primary-fixed">88.5</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Rata-rata Nilai</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">trending_up</span>
+</div>
+<div class="flex items-center justify-between border-b border-outline-variant pb-4">
+<div>
+<p class="text-headline-md font-headline-md text-on-surface">12</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Ujian Selesai</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">task_alt</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-headline-md font-headline-md text-on-surface">2</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Ujian Mendatang</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">event</span>
+</div>
+</div>
+</div>
+<!-- Recent Results Table-Like Card -->
+<div class="lg:col-span-2 bg-surface-container-low border border-outline-variant">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h3 class="text-headline-md font-headline-md text-on-surface">Hasil Ujian Terbaru</h3>
+<a class="text-primary-fixed text-label-sm font-label-sm hover:underline" href="#">Lihat Semua</a>
+</div>
+<div class="divide-y divide-outline-variant">
+<div class="p-6 flex items-center justify-between group hover:bg-surface-container-highest transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed">history_edu</span>
+</div>
+<div>
+<h4 class="text-body-md font-bold text-on-surface">Bahasa Arab - Nahwu Shorof</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">15 Okt 2023 • Semester Ganjil</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-headline-md font-headline-md text-on-surface">92<span class="text-label-sm font-label-sm">/100</span></p>
+<span class="px-2 py-0.5 bg-green-900/30 text-green-400 text-[10px] font-bold uppercase tracking-widest">LULUS</span>
+</div>
+</div>
+<div class="p-6 flex items-center justify-between group hover:bg-surface-container-highest transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed">menu_book</span>
+</div>
+<div>
+<h4 class="text-body-md font-bold text-on-surface">Tafsir Al-Qur'an</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">10 Okt 2023 • Kuis Mingguan</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-headline-md font-headline-md text-on-surface">85<span class="text-label-sm font-label-sm">/100</span></p>
+<span class="px-2 py-0.5 bg-green-900/30 text-green-400 text-[10px] font-bold uppercase tracking-widest">LULUS</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Schedule -->
+<div class="bg-surface-container-low border border-outline-variant">
+<div class="p-6 border-b border-outline-variant">
+<h3 class="text-headline-md font-headline-md text-on-surface">Jadwal Mendatang</h3>
+</div>
+<div class="p-6 space-y-6">
+<div class="relative pl-6 border-l-2 border-primary-fixed">
+<p class="text-label-sm font-label-sm text-primary-fixed mb-1">BESOK, 08:00 WIB</p>
+<h4 class="text-body-md font-bold text-on-surface">Sejarah Kebudayaan Islam</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Gedung B, Ruang 304</p>
+</div>
+<div class="relative pl-6 border-l-2 border-outline">
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1">20 OKT, 10:00 WIB</p>
+<h4 class="text-body-md font-bold text-on-surface">Aqidah Akhlak</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Ujian Online / LMS</p>
+</div>
+<button class="w-full py-3 border border-outline text-on-surface-variant hover:border-primary-fixed hover:text-primary-fixed transition-all text-label-sm font-bold tracking-widest uppercase">
+                            Sinkronisasi Kalender
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Bottom Navigation Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container border-t border-outline-variant grid grid-cols-5 h-16 z-50">
+<a class="flex flex-col items-center justify-center text-primary-fixed" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold mt-1">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] mt-1">Jadwal</span>
+</a>
+<a class="flex flex-col items-center justify-center" href="#">
+<div class="bg-primary-fixed text-on-primary-fixed p-2 -mt-8 border-4 border-surface rounded-full shadow-lg">
+<span class="material-symbols-outlined">play_arrow</span>
+</div>
+<span class="text-[10px] text-on-surface-variant mt-1">Ujian</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">grade</span>
+<span class="text-[10px] mt-1">Nilai</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] mt-1">Profil</span>
+</a>
+</nav>
+</body></html>

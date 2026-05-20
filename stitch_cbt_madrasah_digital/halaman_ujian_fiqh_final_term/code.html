@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for Question Navigator */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1c1b1b;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #909378;
+            border-radius: 2px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#191e00",
+                        "inverse-primary": "#586400",
+                        "on-secondary": "#303030",
+                        "background": "#131313",
+                        "outline-variant": "#464932",
+                        "primary-fixed-dim": "#bad200",
+                        "on-secondary-container": "#b7b5b4",
+                        "tertiary-fixed": "#c9e8f1",
+                        "primary-fixed": "#d4f000",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-highest": "#353534",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#2e4b52",
+                        "surface-tint": "#bad200",
+                        "surface-container": "#201f1f",
+                        "on-background": "#e5e2e1",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-variant": "#353534",
+                        "inverse-on-surface": "#313030",
+                        "tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-tertiary-container": "#4c6971",
+                        "surface-bright": "#393939",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#e4e2e1",
+                        "primary-container": "#d4f000",
+                        "secondary-container": "#474746",
+                        "secondary": "#c8c6c5",
+                        "on-primary": "#2d3400",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface-variant": "#c6c9ab",
+                        "on-tertiary": "#17343b",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed": "#001f26",
+                        "tertiary-fixed-dim": "#adccd4",
+                        "on-primary-container": "#5e6b00",
+                        "primary": "#ffffff",
+                        "surface": "#131313",
+                        "on-primary-fixed-variant": "#424b00",
+                        "outline": "#909378",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-container": "#c9e8f1",
+                        "error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max-width": "1200px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "padding-card": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-timer": ["Geist"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-timer": ["20px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden h-screen">
+<!-- TopAppBar Center-Aligned (From JSON) -->
+<header class="bg-surface-container-lowest border-b-2 border-primary-fixed flex justify-between items-center w-full px-gutter h-20 docked full-width top-0 z-50">
+<div class="flex items-center gap-4">
+<h1 class="text-headline-md font-headline-md text-on-surface">Fiqh - Final Term</h1>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex flex-col items-end">
+<span class="text-label-sm font-label-sm text-outline">Sisa Waktu</span>
+<span class="text-label-timer font-label-timer text-error animate-pulse">00:59:59</span>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed font-bold px-6 py-2 rounded-lg hover:opacity-80 transition-all active:scale-95">
+                Submit Exam
+            </button>
+</div>
+</header>
+<main class="flex h-[calc(100vh-80px)] mt-20">
+<!-- Main Content Canvas (Question Area) -->
+<section class="flex-1 overflow-y-auto px-gutter py-12 custom-scrollbar">
+<div class="max-w-[700px] mx-auto space-y-8">
+<!-- Question Header -->
+<div class="flex justify-between items-center border-b border-outline-variant pb-4">
+<span class="bg-surface-container-highest text-primary-fixed px-3 py-1 text-label-sm font-label-sm uppercase tracking-wider">Pertanyaan 12</span>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined" data-icon="flag">flag</span>
+<span class="text-label-sm font-label-sm">Tandai Soal</span>
+</button>
+</div>
+<!-- The Question Content -->
+<div class="space-y-6">
+<p class="text-body-lg font-body-lg text-on-surface">
+                        Berdasarkan dalil-dalil hukum yang telah dipelajari, selesaikanlah kalkulasi probabilitas distribusi normal dalam konteks penentuan waktu ibadah berikut ini dengan menggunakan rumus integral Gauss:
+                    </p>
+<!-- LaTeX Container -->
+<div class="bg-surface-container-low border border-outline-variant p-8 flex justify-center items-center rounded-lg">
+<div class="text-headline-md font-headline-md text-on-surface select-none">
+<span class="italic">∫</span><sub class="text-label-sm">0</sub><sup class="text-label-sm">∞</sup> e<sup>-x²</sup> dx = <span class="border-b border-on-surface px-1">√π</span> / 2
+                        </div>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">
+                        Sebutkan implikasi hukum jika variabel <span class="italic">x</span> merepresentasikan durasi waktu antara dua waktu shalat yang saling bersinggungan.
+                    </p>
+</div>
+<!-- Multiple Choice Options -->
+<div class="space-y-3">
+<label class="group flex items-center p-4 bg-surface-container border border-outline-variant rounded hover:border-primary-fixed transition-all cursor-pointer">
+<input class="hidden peer" name="q12" type="radio"/>
+<div class="w-6 h-6 border-2 border-outline rounded-sm flex items-center justify-center mr-4 peer-checked:bg-primary-fixed peer-checked:border-primary-fixed group-hover:border-primary-fixed transition-colors">
+<div class="w-2 h-2 bg-on-primary-fixed rounded-full opacity-0 peer-checked:opacity-100"></div>
+</div>
+<span class="text-body-md font-body-md text-on-surface group-hover:text-primary-fixed">A. Hukumnya mubah berdasarkan konsensus ulama</span>
+</label>
+<label class="group flex items-center p-4 bg-surface-container border border-outline-variant rounded hover:border-primary-fixed transition-all cursor-pointer">
+<input class="hidden peer" name="q12" type="radio"/>
+<div class="w-6 h-6 border-2 border-outline rounded-sm flex items-center justify-center mr-4 peer-checked:bg-primary-fixed peer-checked:border-primary-fixed group-hover:border-primary-fixed transition-colors">
+<div class="w-2 h-2 bg-on-primary-fixed rounded-full opacity-0 peer-checked:opacity-100"></div>
+</div>
+<span class="text-body-md font-body-md text-on-surface group-hover:text-primary-fixed">B. Mengikuti kaidah Fiqh prioritas waktu</span>
+</label>
+<label class="group flex items-center p-4 bg-primary-fixed/10 border-2 border-primary-fixed rounded cursor-pointer">
+<input checked="" class="hidden peer" name="q12" type="radio"/>
+<div class="w-6 h-6 border-2 border-primary-fixed bg-primary-fixed rounded-sm flex items-center justify-center mr-4">
+<div class="w-2 h-2 bg-on-primary-fixed rounded-full"></div>
+</div>
+<span class="text-body-md font-body-md text-primary-fixed font-bold">C. Perhitungan ini tidak relevan dengan penetapan waktu</span>
+</label>
+<label class="group flex items-center p-4 bg-surface-container border border-outline-variant rounded hover:border-primary-fixed transition-all cursor-pointer">
+<input class="hidden peer" name="q12" type="radio"/>
+<div class="w-6 h-6 border-2 border-outline rounded-sm flex items-center justify-center mr-4 peer-checked:bg-primary-fixed peer-checked:border-primary-fixed group-hover:border-primary-fixed transition-colors">
+<div class="w-2 h-2 bg-on-primary-fixed rounded-full opacity-0 peer-checked:opacity-100"></div>
+</div>
+<span class="text-body-md font-body-md text-on-surface group-hover:text-primary-fixed">D. Wajib menggunakan ijtihad kontemporer</span>
+</label>
+</div>
+<!-- Essay Area -->
+<div class="space-y-4 pt-8">
+<label class="text-headline-md font-headline-md text-on-surface block">Analisis Esai</label>
+<textarea class="w-full h-48 bg-surface-container-high border border-outline-variant rounded-lg p-6 text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary-fixed focus:ring-1 focus:ring-primary-fixed transition-all font-body-md" placeholder="Tuliskan jawaban analisis Anda di sini secara mendalam..."></textarea>
+<div class="flex justify-between items-center text-label-sm font-label-sm text-outline">
+<span>Min. 200 kata</span>
+<span>0 / 500 kata</span>
+</div>
+</div>
+<!-- Navigation Buttons -->
+<div class="flex justify-between items-center pt-12">
+<button class="flex items-center gap-2 border-2 border-outline px-6 py-2 text-on-surface font-bold hover:border-primary-fixed hover:text-primary-fixed transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+                        SEBELUMNYA
+                    </button>
+<button class="flex items-center gap-2 bg-primary-fixed text-on-primary-fixed px-8 py-2 font-bold hover:opacity-90 transition-all">
+                        SELANJUTNYA
+                        <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- SideNavBar - Question Navigator (From JSON) -->
+<aside class="fixed right-0 top-20 h-[calc(100vh-80px)] w-72 bg-surface-container-low border-l border-outline-variant p-6 flex flex-col gap-6 docked right-0 z-40 shadow-xl">
+<div class="space-y-1">
+<h2 class="text-label-sm font-label-sm text-primary-fixed uppercase tracking-widest">Question Navigator</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">40 Questions Total</p>
+</div>
+<div class="grid grid-cols-5 gap-2 overflow-y-auto custom-scrollbar pr-2 flex-1">
+<!-- Q1-10 Group (Active Section) -->
+<div class="col-span-5 text-label-sm font-label-sm text-outline py-2 border-b border-outline-variant mb-2">Q1 - Q10</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline bg-green-900/30 border-green-500/50 rounded-sm text-label-sm font-bold">1</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline bg-green-900/30 border-green-500/50 rounded-sm text-label-sm font-bold">2</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline bg-green-900/30 border-green-500/50 rounded-sm text-label-sm font-bold">3</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline bg-green-900/30 border-green-500/50 rounded-sm text-label-sm font-bold">4</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline bg-green-900/30 border-green-500/50 rounded-sm text-label-sm font-bold">5</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline bg-green-900/30 border-green-500/50 rounded-sm text-label-sm font-bold">6</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline bg-green-900/30 border-green-500/50 rounded-sm text-label-sm font-bold">7</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline bg-green-900/30 border-green-500/50 rounded-sm text-label-sm font-bold">8</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline bg-green-900/30 border-green-500/50 rounded-sm text-label-sm font-bold">9</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline bg-green-900/30 border-green-500/50 rounded-sm text-label-sm font-bold">10</div>
+<!-- Q11-20 Group -->
+<div class="col-span-5 text-label-sm font-label-sm text-outline py-2 border-b border-outline-variant my-2">Q11 - Q20</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline bg-green-900/30 border-green-500/50 rounded-sm text-label-sm font-bold">11</div>
+<!-- Current Question -->
+<div class="w-10 h-10 flex items-center justify-center text-primary-fixed border-2 border-primary-fixed bg-primary-fixed/10 rounded-sm text-label-sm font-bold relative">
+                    12
+                    <div class="absolute -top-1 -right-1 w-2 h-2 bg-primary-fixed rounded-full"></div>
+</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline rounded-sm text-label-sm">13</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border-2 border-primary-fixed/50 bg-primary-fixed/5 rounded-sm text-label-sm font-bold">14</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-primary-fixed border border-primary-fixed bg-primary-fixed rounded-sm text-label-sm font-bold">15</div>
+<!-- Flagged -->
+<div class="w-10 h-10 flex items-center justify-center text-on-secondary-fixed bg-secondary-fixed border border-outline rounded-sm text-label-sm font-bold relative">
+                    16
+                    <span class="material-symbols-outlined text-[10px] absolute -bottom-1 -right-1 text-on-secondary-fixed" data-icon="flag" style="font-variation-settings: 'FILL' 1;">flag</span>
+</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline rounded-sm text-label-sm">17</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline rounded-sm text-label-sm">18</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline rounded-sm text-label-sm">19</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline rounded-sm text-label-sm">20</div>
+<!-- Rest of the grid placeholders -->
+<div class="col-span-5 text-label-sm font-label-sm text-outline py-2 border-b border-outline-variant my-2">Q21 - Q40</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline rounded-sm text-label-sm opacity-50">...</div>
+<div class="w-10 h-10 flex items-center justify-center text-on-surface border border-outline rounded-sm text-label-sm opacity-50">40</div>
+</div>
+<!-- Footer Tabs -->
+<div class="mt-auto border-t border-outline-variant pt-4 space-y-4">
+<div class="flex items-center gap-3 p-3 bg-surface-container-highest/30 rounded-lg group cursor-pointer hover:bg-primary-fixed/10 transition-all border border-transparent hover:border-primary-fixed/20">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="support_agent">support_agent</span>
+<span class="text-body-md font-body-md text-on-surface">Help Desk</span>
+</div>
+<div class="flex flex-col gap-1 text-[10px] text-outline px-1 uppercase tracking-tighter">
+<div class="flex justify-between">
+<span>Sudah Dijawab:</span>
+<span class="text-primary-fixed">15/40</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 mt-1 rounded-full overflow-hidden">
+<div class="bg-primary-fixed h-full" style="width: 37.5%"></div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Contextual FAB (Hidden on Exam Screen per JSON logic but provided if needed) -->
+<!-- Suppression Logic: FAB suppressed on detail/active transaction screens -->
+</body></html>
