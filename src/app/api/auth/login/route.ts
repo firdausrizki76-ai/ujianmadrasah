@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
 import { createAdminClient } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
@@ -29,11 +28,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Authenticate with Supabase Auth using anon client
-    const supabaseAuth = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    );
+    // Authenticate with Supabase Auth using anon client from config
+    const { supabase: supabaseAuth } = await import("@/lib/supabase");
     const { data: authData, error: authError } =
       await supabaseAuth.auth.signInWithPassword({ email, password });
 
